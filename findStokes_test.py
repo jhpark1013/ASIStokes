@@ -125,7 +125,7 @@ class StokesImages():
 
     def specimen_properties_diattenuation(self, S0, S1, S2):
         orientationReference = 0.5 * np.pi; analyzerLeftCircular = -1;
-        TransmissionAx =( 1/2 * np.arctan2(analyzerLeftCircular * S2,S1)+ orientationReference)  % np.pi ;
+        TransmissionAx =( 1/2 * np.arctan2(S2,S1)+ orientationReference)  % np.pi ;
         TransmissionAx = np.reshape(TransmissionAx, (1024, 1224))
         PolRet = np.sqrt(S1**2 + S2**2)/S0; PolRet = np.reshape(PolRet, (1024, 1224))
         PolRet_norm = (PolRet-np.min(PolRet))/(np.max(PolRet)-np.min(PolRet))
